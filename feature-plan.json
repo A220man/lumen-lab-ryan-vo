@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "current_feature": "core-skeleton",
+  "features": [
+    {
+      "id": "core-skeleton",
+      "title": "Core FastAPI/React skeleton with health endpoint",
+      "status": "done",
+      "acceptance": [
+        "FastAPI backend with /health endpoint",
+        "React + TypeScript + Vite frontend with build/test scripts",
+        "Dockerfiles for backend and frontend",
+        "docker-compose.yaml with Keycloak and volumes",
+        "Backend and frontend tests pass",
+        "README with install/run/test steps"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/requirements.txt",
+        "frontend/package.json",
+        "frontend/src/main.tsx",
+        "frontend/src/App.tsx",
+        "Dockerfile.backend",
+        "Dockerfile.frontend",
+        "compose.yaml",
+        "README.md"
+      ],
+      "tests": [
+        "backend/tests/test_health.py",
+        "frontend/src/App.test.tsx"
+      ]
+    },
+    {
+      "id": "driver-benchmark-api",
+      "title": "Driver benchmark API for latency measurements",
+      "status": "planned",
+      "acceptance": [
+        "POST /api/v1/benchmarks/run endpoint",
+        "GET /api/v1/benchmarks/{id} endpoint",
+        "SQLite persistence with pagination",
+        "Configurable observation/settle delays (from issue #3971)"
+      ],
+      "implementation": [
+        "backend/app/api/benchmarks.py",
+        "backend/app/services/benchmark.py",
+        "backend/app/models/benchmark.py",
+        "backend/tests/test_benchmarks.py"
+      ],
+      "tests": [
+        "backend/tests/test_benchmarks.py"
+      ]
+    },
+    {
+      "id": "sandbox-orchestration",
+      "title": "Cross-OS sandbox orchestration (lume/VM management)",
+      "status": "planned",
+      "acceptance": [
+        "POST /api/v1/sandboxes endpoint",
+        "GET /api/v1/sandboxes endpoint with filtering",
+        "ARM64-compatible Docker image references (from issue #353)",
+        "GHCR publish workflow documentation (from issue #22)"
+      ],
+      "implementation": [
+        "backend/app/api/sandboxes.py",
+        "backend/app/services/sandbox.py",
+        "backend/app/models/sandbox.py",
+        "backend/tests/test_sandboxes.py"
+      ],
+      "tests": [
+        "backend/tests/test_sandboxes.py"
+      ]
+    },
+    {
+      "id": "hyprland-isolated-input",
+      "title": "Hyprland isolated background input configuration",
+      "status": "planned",
+      "acceptance": [
+        "Configuration schema for synthetic seat (from issue #3550)",
+        "Operator authorization workflow",
+        "Capability negotiation API"
+      ],
+      "implementation": [
+        "backend/app/api/hyprland.py",
+        "backend/app/services/hyprland.py",
+        "backend/app/models/hyprland.py"
+      ],
+      "tests": [
+        "backend/tests/test_hyprland.py"
+      ]
+    },
+    {
+      "id": "cooperative-cancellation",
+      "title": "Cooperative cancellation for in-flight operations",
+      "status": "planned",
+      "acceptance": [
+        "Cancellation token propagation",
+        "Partial result return on cancel",
+        "Resource cleanup on session end"
+      ],
+      "implementation": [
+        "backend/app/core/cancellation.py",
+        "backend/app/services/operation.py"
+      ],
+      "tests": [
+        "backend/tests/test_cancellation.py"
+      ]
+    },
+    {
+      "id": "frontend-dashboard",
+      "title": "React dashboard with benchmark/sandbox workflows",
+      "status": "planned",
+      "acceptance": [
+        "Benchmark run/create/results views",
+        "Sandbox list/create views",
+        "Real API client with typed responses",
+        "Loading/error/empty states"
+      ],
+      "implementation": [
+        "frontend/src/api/client.ts",
+        "frontend/src/components/BenchmarkDashboard.tsx",
+        "frontend/src/components/SandboxDashboard.tsx",
+        "frontend/src/pages/Benchmarks.tsx",
+        "frontend/src/pages/Sandboxes.tsx"
+      ],
+      "tests": [
+        "frontend/src/components/BenchmarkDashboard.test.tsx",
+        "frontend/src/components/SandboxDashboard.test.tsx"
+      ]
+    },
+    {
+      "id": "auth-oidc-keycloak",
+      "title": "OIDC authentication with Keycloak",
+      "status": "planned",
+      "acceptance": [
+        "Keycloak realm import",
+        "Backend session management with HttpOnly cookies",
+        "Frontend PKCE login flow",
+        "Role-based authorization (viewer/operator/admin)"
+      ],
+      "implementation": [
+        "backend/app/core/auth.py",
+        "backend/app/api/auth.py",
+        "frontend/src/auth/AuthProvider.tsx",
+        "frontend/src/auth/useAuth.ts",
+        "keycloak/realm-export.json"
+      ],
+      "tests": [
+        "backend/tests/test_auth.py",
+        "frontend/src/auth/AuthProvider.test.tsx"
+      ]
+    }
+  ]
+}

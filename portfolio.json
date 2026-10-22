@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "lumen-lab-ryan-vo",
+  "owner": "A220man",
+  "email": "ryandtvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: lumen-lab-ryan-vo",
+  "workflows": [
+    "Run configurable driver latency benchmarks with observation/settle timeout tuning",
+    "Manage cross-OS sandbox environments with ARM64 support and GHCR publishing",
+    "Configure Hyprland synthetic seat for isolated background input with operator authorization"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}
