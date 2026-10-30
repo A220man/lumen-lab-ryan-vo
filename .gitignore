@@ -56,3 +56,4 @@ coverage/
 tmp/
 temp/
 *.tmp
+venv/

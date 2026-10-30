@@ -6,14 +6,18 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.api import health, benchmarks, sandboxes, hyprland, auth
+from app.services.database import init_db, close_db
+import app.models.benchmark  # noqa: F401 - register models
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
     # Startup
+    await init_db()
     yield
     # Shutdown
+    await close_db()
 
 
 def create_app() -> FastAPI:

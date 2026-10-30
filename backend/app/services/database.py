@@ -29,8 +29,7 @@ async def init_db() -> None:
         await conn.run_sync(Base.metadata.create_all)
 
 
-@asynccontextmanager
-async def get_db() -> AsyncSession:
+async def get_db():
     """Get database session."""
     async with async_session_maker() as session:
         try:
