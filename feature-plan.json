@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "core-skeleton",
+  "current_feature": "driver-benchmark-api",
   "features": [
     {
       "id": "core-skeleton",
@@ -33,7 +33,7 @@
     {
       "id": "driver-benchmark-api",
       "title": "Driver benchmark API for latency measurements",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "POST /api/v1/benchmarks/run endpoint",
         "GET /api/v1/benchmarks/{id} endpoint",

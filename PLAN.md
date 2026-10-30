@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-core-skeleton
+driver-benchmark-api
 
 ## Roadmap
 
@@ -26,7 +26,7 @@ Tests: `backend/tests/test_health.py`, `frontend/src/App.test.tsx`
 
 ### driver-benchmark-api — Driver benchmark API for latency measurements
 
-Status: planned
+Status: done
 
 Acceptance:
 - POST /api/v1/benchmarks/run endpoint
