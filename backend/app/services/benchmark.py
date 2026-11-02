@@ -3,7 +3,7 @@
 import asyncio
 import random
 import time
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import List, Optional
 from uuid import uuid4
 
@@ -89,7 +89,7 @@ class BenchmarkService:
             raise ValueError(f"Benchmark {benchmark_id} is not in pending state")
 
         run.status = BenchmarkStatus.RUNNING
-        run.started_at = datetime.utcnow()
+        run.started_at = datetime.now(UTC)
         await self.db.flush()
 
         # Simulate benchmark iterations
@@ -129,7 +129,7 @@ class BenchmarkService:
         run.p99_latency_ms = latencies[int(len(latencies) * 0.99)]
 
         run.status = BenchmarkStatus.COMPLETED
-        run.completed_at = datetime.utcnow()
+        run.completed_at = datetime.now(UTC)
         await self.db.flush()
         await self.db.refresh(run)
 
@@ -155,7 +155,7 @@ class BenchmarkService:
             raise ValueError(f"Cannot cancel benchmark in {run.status} state")
 
         run.status = BenchmarkStatus.CANCELLED
-        run.completed_at = datetime.utcnow()
+        run.completed_at = datetime.now(UTC)
         await self.db.flush()
         await self.db.refresh(run)
         return run

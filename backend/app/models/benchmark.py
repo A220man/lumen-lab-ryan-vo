@@ -1,6 +1,6 @@
 """Benchmark models for driver-benchmark-api feature."""
 
-from datetime import datetime
+from datetime import datetime, UTC
 from enum import Enum
 from typing import Optional
 from sqlalchemy import Column, Integer, String, DateTime, Float, Text, Enum as SQLEnum
@@ -46,7 +46,7 @@ class BenchmarkRun(Base):
     error_message = Column(Text, nullable=True)
 
     # Timestamps
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at = Column(DateTime, default=lambda: datetime.now(UTC), nullable=False)
     started_at = Column(DateTime, nullable=True)
     completed_at = Column(DateTime, nullable=True)
 
@@ -60,5 +60,5 @@ class BenchmarkIteration(Base):
     run_id = Column(Integer, nullable=False, index=True)
     iteration = Column(Integer, nullable=False)
     latency_ms = Column(Float, nullable=False)
-    timestamp = Column(DateTime, default=datetime.utcnow, nullable=False)
+    timestamp = Column(DateTime, default=lambda: datetime.now(UTC), nullable=False)
 

@@ -1,8 +1,16 @@
 # Changelog
 
+## 1.2.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.1.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+### Fixed
+- `datetime.utcnow()` deprecation warnings in driver-benchmark-api feature
+- Updated `backend/app/services/benchmark.py` and `backend/app/models/benchmark.py` to use timezone-aware `datetime.now(UTC)`
 
 ## 1.0.0 — work-in-progress checkpoint
 
