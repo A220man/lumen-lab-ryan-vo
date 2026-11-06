@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-driver-benchmark-api
+sandbox-orchestration
 
 ## Roadmap
 
@@ -40,7 +40,7 @@ Tests: `backend/tests/test_benchmarks.py`
 
 ### sandbox-orchestration — Cross-OS sandbox orchestration (lume/VM management)
 
-Status: planned
+Status: done
 
 Acceptance:
 - POST /api/v1/sandboxes endpoint

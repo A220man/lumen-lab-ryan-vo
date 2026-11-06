@@ -8,6 +8,7 @@ from app.core.config import settings
 from app.api import health, benchmarks, sandboxes, hyprland, auth
 from app.services.database import init_db, close_db
 import app.models.benchmark  # noqa: F401 - register models
+import app.models.sandbox  # noqa: F401 - register models
 
 
 @asynccontextmanager

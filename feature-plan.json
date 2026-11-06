@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "driver-benchmark-api",
+  "current_feature": "sandbox-orchestration",
   "features": [
     {
       "id": "core-skeleton",
@@ -53,7 +53,7 @@
     {
       "id": "sandbox-orchestration",
       "title": "Cross-OS sandbox orchestration (lume/VM management)",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "POST /api/v1/sandboxes endpoint",
         "GET /api/v1/sandboxes endpoint with filtering",
