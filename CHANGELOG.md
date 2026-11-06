@@ -1,48 +1,53 @@
 # Changelog
 
-## 1.2.0 — work-in-progress checkpoint
-
-Partial code published for continued development. Known issues: STATUS.md.
-
-## 1.1.0 — work-in-progress checkpoint
-
-Partial code published for continued development. Known issues: STATUS.md.
-
-### Fixed
-- `datetime.utcnow()` deprecation warnings in driver-benchmark-api feature
-- Updated `backend/app/services/benchmark.py` and `backend/app/models/benchmark.py` to use timezone-aware `datetime.now(UTC)`
-
-## 1.0.0 — work-in-progress checkpoint
+## 1.3.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [1.0.0] - 2024-10-22
+## [1.2.0] - 2026-11-06
 
 ### Added
-- Initial project structure with FastAPI backend and React/TypeScript/Vite frontend
-- Health check endpoints (`/api/v1/health`, `/api/v1/health/ready`)
-- Docker Compose with backend, frontend, and Keycloak services
-- Keycloak realm export with viewer/operator/admin roles
-- Placeholder API routes for benchmarks, sandboxes, Hyprland, and auth
-- Frontend pages: Dashboard, Benchmarks, Sandboxes, Hyprland, Login
-- Typed API client with cookie-based authentication
-- Basic test suite for backend and frontend
-- README with architecture diagram and API reference
-- MIT License
+- **Sandbox Orchestration API** (`sandbox-orchestration` feature)
+  - `POST /api/v1/sandboxes` - Create sandbox with configurable provider (lume, qemu, firecracker, docker), architecture (amd64, arm64), resources (CPU, memory, disk), ports, and labels
+  - `GET /api/v1/sandboxes` - List sandboxes with pagination and filtering by status, provider, architecture
+  - `GET /api/v1/sandboxes/{id}` - Get sandbox details
+  - `PATCH /api/v1/sandboxes/{id}` - Update sandbox configuration
+  - `POST /api/v1/sandboxes/{id}/start` - Start sandbox (simulated)
+  - `POST /api/v1/sandboxes/{id}/stop` - Stop sandbox
+  - `DELETE /api/v1/sandboxes/{id}` - Delete sandbox
+  - `GET /api/v1/sandboxes/{id}/ports` - Get port mappings
+  - ARM64-compatible Docker image references (addresses issue #353)
+  - GHCR image reference support (addresses issue #22)
+  - SQLite persistence with SQLAlchemy models
+  - 15 comprehensive test cases
 
-### Security
-- HttpOnly SameSite cookies for session management
-- CSRF protection on state-changing operations
-- Role-based authorization framework
-- Demo mode restricted to localhost
+## [1.1.0] - 2026-11-02
 
-### Infrastructure
-- Non-root Docker users
-- Health checks for all services
-- Persistent volumes for database and Keycloak data
-- ARM64-compatible base images
+### Added
+- **Driver Benchmark API** (`driver-benchmark-api` feature)
+  - `POST /api/v1/benchmarks` - Create benchmark run
+  - `GET /api/v1/benchmarks` - List benchmarks with pagination
+  - `GET /api/v1/benchmarks/{id}` - Get benchmark details
+  - `POST /api/v1/benchmarks/{id}/run` - Execute benchmark (simulated latency measurements)
+  - `POST /api/v1/benchmarks/{id}/cancel` - Cancel running benchmark
+  - Configurable observation/settle delays and poll interval (addresses issue #3971)
+  - SQLite persistence with detailed iteration tracking
+  - Percentile latency calculations (p50, p95, p99)
+  - 7 comprehensive test cases
+
+## [1.0.0] - 2026-11-01
+
+### Added
+- **Core FastAPI/React Skeleton** (`core-skeleton` feature)
+  - FastAPI backend with `/api/v1/health` and `/api/v1/ready` endpoints
+  - React + TypeScript + Vite frontend with basic structure
+  - Dockerfiles for backend and frontend
+  - docker-compose.yaml with Keycloak, backend, frontend services
+  - SQLite database with SQLAlchemy async ORM
+  - Configuration via pydantic-settings
+  - CORS middleware for frontend integration
+  - Structured logging with structlog
+  - Health and readiness checks
+  - Backend and frontend test infrastructure
