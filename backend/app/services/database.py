@@ -29,6 +29,12 @@ async def init_db() -> None:
         await conn.run_sync(Base.metadata.create_all)
 
 
+async def reset_db() -> None:
+    """Reset database tables (drop and recreate)."""
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+        await conn.run_sync(Base.metadata.create_all)
+
 async def get_db():
     """Get database session."""
     async with async_session_maker() as session:
