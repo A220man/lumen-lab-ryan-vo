@@ -1,8 +1,34 @@
 # Changelog
 
+## 1.4.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.3.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+### Added
+- **Hyprland Isolated Input API** (`hyprland-isolated-input` feature)
+  - `POST /api/v1/hyprland/seats` - Create synthetic seat with capabilities, seat_name, udev_rules
+  - `GET /api/v1/hyprland/seats` - List seats with pagination and filtering by status, operator_id
+  - `GET /api/v1/hyprland/seats/{id}` - Get seat details
+  - `PATCH /api/v1/hyprland/seats/{id}` - Update seat configuration
+  - `POST /api/v1/hyprland/seats/{id}/authorize` - Authorize pending seat (admin action)
+  - `POST /api/v1/hyprland/seats/{id}/revoke` - Revoke active seat
+  - `DELETE /api/v1/hyprland/seats/{id}` - Delete seat
+  - `GET /api/v1/hyprland/seats/{id}/config` - Get Hyprland configuration for seat setup
+  - `POST /api/v1/hyprland/seats/{id}/negotiate` - Negotiate capabilities for active seat
+  - `GET /api/v1/hyprland/seats/{id}/negotiations` - List capability negotiations
+  - `POST /api/v1/hyprland/authorize` - Create operator authorization request
+  - `GET /api/v1/hyprland/authorize` - List authorization requests with filtering
+  - `GET /api/v1/hyprland/authorize/{id}` - Get authorization request details
+  - `POST /api/v1/hyprland/authorize/{id}/approve` - Approve authorization request
+  - `POST /api/v1/hyprland/authorize/{id}/deny` - Deny authorization request
+  - SQLAlchemy models: HyprlandSeat, HyprlandCapabilityNegotiation, HyprlandAuthorizationRequest
+  - Enums: HyprlandSeatStatus, HyprlandCapability, HyprlandOperatorRole
+  - 26 comprehensive test cases
+  - Addresses issue #3550 (synthetic seat configuration)
 
 All notable changes to this project will be documented in this file.
 

@@ -2,3 +2,4 @@
 
 import app.models.benchmark  # noqa: F401
 import app.models.sandbox  # noqa: F401
+import app.models.hyprland  # noqa: F401

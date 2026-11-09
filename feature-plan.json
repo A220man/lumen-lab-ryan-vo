@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "sandbox-orchestration",
+  "current_feature": "hyprland-isolated-input",
   "features": [
     {
       "id": "core-skeleton",
@@ -73,7 +73,7 @@
     {
       "id": "hyprland-isolated-input",
       "title": "Hyprland isolated background input configuration",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "Configuration schema for synthetic seat (from issue #3550)",
         "Operator authorization workflow",

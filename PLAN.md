@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-sandbox-orchestration
+hyprland-isolated-input
 
 ## Roadmap
 
@@ -54,7 +54,7 @@ Tests: `backend/tests/test_sandboxes.py`
 
 ### hyprland-isolated-input — Hyprland isolated background input configuration
 
-Status: planned
+Status: done
 
 Acceptance:
 - Configuration schema for synthetic seat (from issue #3550)
