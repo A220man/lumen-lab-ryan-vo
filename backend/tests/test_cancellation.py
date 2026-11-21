@@ -122,6 +122,24 @@ class TestOperationContext:
         assert result is not None
         assert result.get("partial_result") == {"status": "partial", "progress": 0.5}
 
+    def test_get_partial_result(self):
+        """get_partial_result returns the set result and None when not set."""
+        token = CancellationToken()
+        ctx = OperationContext(token, "test-op-4")
+
+        # Before setting, should return None
+        assert ctx.get_partial_result() is None
+
+        # After setting, should return the result
+        ctx.set_partial_result({"status": "partial", "progress": 0.5})
+        assert ctx.get_partial_result() == {"status": "partial", "progress": 0.5}
+
+        # After cancellation, should still return the result
+        token.cancel()
+        # __aexit__ returns the partial_result in the dict, but get_partial_result
+        # always returns the stored value
+        assert ctx.get_partial_result() == {"status": "partial", "progress": 0.5}
+
     def test_add_and_invoke_cleanup(self):
         """Cleanup functions are invoked on context exit with cancellation."""
         token = CancellationToken()

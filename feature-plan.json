@@ -91,7 +91,7 @@
     {
       "id": "cooperative-cancellation",
       "title": "Cooperative cancellation for in-flight operations",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "Cancellation token propagation",
         "Partial result return on cancel",
