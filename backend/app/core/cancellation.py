@@ -148,6 +148,14 @@ class OperationContext:
         """Set a partial result to be returned on cancellation."""
         self._partial_result = result
 
+    def get_partial_result(self) -> Optional[object]:
+        """Get the partial result set on cancellation, if any.
+
+        Returns:
+            The partial result object, or None if no partial result was set.
+        """
+        return self._partial_result
+
     def add_cleanup(self, func: Callable) -> None:
         """Add a cleanup function to run on cancellation or completion."""
         self._cleanup_functions.append(func)

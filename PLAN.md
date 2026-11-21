@@ -67,7 +67,7 @@ Tests: `backend/tests/test_hyprland.py`
 
 ### cooperative-cancellation — Cooperative cancellation for in-flight operations
 
-Status: planned
+Status: done
 
 Acceptance:
 - Cancellation token propagation
