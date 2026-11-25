@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-hyprland-isolated-input
+frontend-dashboard
 
 ## Roadmap
 
@@ -80,7 +80,7 @@ Tests: `backend/tests/test_cancellation.py`
 
 ### frontend-dashboard — React dashboard with benchmark/sandbox workflows
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Benchmark run/create/results views

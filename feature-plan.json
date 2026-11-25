@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "hyprland-isolated-input",
+  "current_feature": "frontend-dashboard",
   "features": [
     {
       "id": "core-skeleton",
@@ -108,7 +108,7 @@
     {
       "id": "frontend-dashboard",
       "title": "React dashboard with benchmark/sandbox workflows",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Benchmark run/create/results views",
         "Sandbox list/create views",
